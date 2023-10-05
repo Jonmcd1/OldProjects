@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Draw Greyscale for AI</title>
+        <style>
+            body {
+                background-color: rgb(0, 0, 0);
+            }
+            
+            #drawingTable {
+                position: absolute;
+                top: 100px;
+                left: 100px;
+                border-collapse: collapse;
+                box-sizing: border-box;
+                padding: 0px;
+                border-radius: 100%;
+                border-spacing: 0px;
+            }
+
+            .drawingCell {
+                width: 24.5px;
+                min-width: 24.5px;
+                height: 24.5px;
+                border: 0.5px solid rgb(255, 255, 255);
+                background-color: rgb(0, 0, 0);
+                padding: 0px;
+            }
+
+            #whatIsIt {
+                position: absolute;
+                left: 350px;
+                top: 725px;
+                height: 25px;
+                width: 100px;
+                text-align: center;
+                background-color: rgb(200, 200, 200);
+            }
+
+            #go {
+                position: absolute;
+                left: 350px;
+                top: 765px;
+                width: 100px;
+                text-align: center;
+                background-color: rgb(200, 200, 200);
+                border: 2px solid rgb(0, 0, 0);
+                padding: 1px;
+            }
+
+            #outputInfo {
+                position: relative;
+                left: 100px;
+                top: 840px;
+                width: 600px;
+                text-align: center;
+                background-color: rgb(200, 200, 200);
+                margin-bottom: 1000px;
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+        </style>
+
+    </head>
+    <body>
+
+
+        <table id="drawingTable">
+            <tbody id="grid">
+
+            </tbody>
+        </table>
+
+        <input type="text" id="whatIsIt">
+        <h1 id="go">Go</h1>
+
+        <p id="outputInfo">
+
+        </p>
+
+
+        <script>            
+            var MAX_DIST = 75;
+            
+            var getCellAtPos = function(posX, posY) {
+                // If position is out-of-bounds, use closest in-bounds position
+                if (posX < 100) posX = 100;
+                if (posX > 699) posX = 699;
+                if (posY < 100) posY = 100;
+                if (posY > 699) posY = 699;
+
+                // Is an x-y pair
+                return [Math.floor((posX - 100) / 25), Math.floor((posY - 100) / 25)];
+            }
+            
+            var getCellsToMod = function(currX, currY) {
+                var topLeft = getCellAtPos(currX - MAX_DIST, currY - MAX_DIST);
+                var bottomRight = getCellAtPos(currX + MAX_DIST, currY + MAX_DIST);
+
+                var output = [];
+                for (var i = topLeft[0]; i <= bottomRight[0]; i++) {
+                    for (var j = topLeft[1]; j <= bottomRight[1]; j++) {
+                        output.push([i, j]);
+                    }
+                }
+
+                // Is a list of x-y pairs
+                return output;
+            }
+
+            var distanceIntensity = function(currX, currY, targetX, targetY) {
+                // Distance Intensity: distance / MAX_DIST;
+                var distance = Math.sqrt(Math.pow(Math.abs(currX - targetX), 2) + Math.pow(Math.abs(currY - targetY), 2));
+                var intensity = (MAX_DIST - distance) / MAX_DIST;
+                if (intensity < 0) return 0;
+                return intensity;
+            }
+            
+            var gridBody = document.getElementById("grid");
+            var outputText = document.getElementById("outputInfo");
+
+
+            // Create grid, log grid with the next 2 vars
+            var drawingCells = [];
+            for (var i = 0; i < 24; i++) {
+                drawingCells.push([]);
+            }
+
+            var cellsCenterCoords = [];
+            var cellsCurrColor = [];
+            for (var i = 0; i < 24; i++) {
+                var gridBodyNewRow = document.createElement("tr");
+                gridBody.appendChild(gridBodyNewRow);
+
+                cellsCenterCoords.push([]);
+                cellsCurrColor.push([]);
+                for (var j = 0; j < 24; j++) {
+                    var gridBodyNewCell = document.createElement("td");
+                    gridBodyNewCell.className = "drawingCell";
+                    gridBodyNewRow.appendChild(gridBodyNewCell);
+                    drawingCells[j].push(gridBodyNewCell);
+                    cellsCenterCoords[i].push([112.5 + (25 * i), 112.5 + (25 * j)]);
+                    cellsCurrColor[i].push(0);
+                }
+
+            }
+
+            // Drawing functions
+            var drag = false;
+            gridBody.addEventListener("mousedown", function() {drag = !drag});
+            
+            var colorIn = function(e) {
+                if (drag) {
+                    var cellsToMod = getCellsToMod(e.clientX, e.clientY);
+                    for (var i = 0; i < cellsToMod.length; i++) {
+                        var cell = cellsToMod[i];
+                        var cellCenterX = cellsCenterCoords[cell[0]][cell[1]][0];
+                        var cellCenterY = cellsCenterCoords[cell[0]][cell[1]][1];
+                        var cellColor = 255 * distanceIntensity(e.clientX, e.clientY, cellCenterX, cellCenterY);
+
+                        if (cellsCurrColor[cell[0]][cell[1]] < cellColor) {
+                            cellsCurrColor[cell[0]][cell[1]] = cellColor;
+                            drawingCells[cell[0]][cell[1]].style.backgroundColor = "rgb(" + cellColor + ", " + cellColor + ", " + cellColor + ")";
+                        }
+                    }
+                }
+            }
+            gridBody.addEventListener("mouseover", colorIn);
+
+            var thingDrawn = document.getElementById("whatIsIt");
+            var printData = document.getElementById("go");
+            var dataBox = document.getElementById("outputInfo");
+
+            var outputData = function() {
+                dataBox.innerHTML += thingDrawn.value + " ";
+                for (var i = 0; i < 24; i++) {
+                    for (var j = 0; j < 24; j++) {
+                        dataBox.innerHTML += Math.round(cellsCurrColor[i][j]) + " ";
+                        cellsCurrColor[i][j] = 0;
+                        drawingCells[i][j].style.backgroundColor = "rgb(" + 0 + ", " + 0 + ", " + 0 + ")";
+                    }
+                }
+                dataBox.innerHTML += "<br/>";
+
+
+            }
+            printData.addEventListener("click", outputData);
+
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test Game Gen 2</title>
+
+        <style>
+            #generateUnits {
+                position: relative;
+                top: 0px;
+                left: 45%;
+                height: 100px;
+                width: 10%;
+                border: 3px solid rgb(0, 0, 0);
+                border-radius: 50%;
+                background-color: lime;
+            }
+            #generateText {
+                margin-top: 30px;
+                font-size: 25px;
+            }
+            
+
+            #unitGen0 .unitText{
+                left: 0%;
+            }
+
+            .unitBox {
+                position: relative;
+                left: 20%;
+                top: 150px;
+                height: 50px;
+                width: 60%;
+                margin: 0px;
+                margin-bottom: 75px;
+                border: 3px solid rgb(0, 0, 0);
+                clear: none;
+            }
+            .unitBackground {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 0%;
+                height: 50px;
+                background-color: lime;
+            }
+            .unitText {
+                position: relative;
+                left: -10%;
+                margin: 0px;
+                margin-top: 5px;
+                text-align: center;
+                font-size: 32px;
+                font-weight: bold;
+                font-family: monospace;
+            }
+            
+            #unitGen0Background {
+                width: 100%;
+            }
+
+
+            .unitGenPurchase {
+                position: relative;
+                float: left;
+                left: 5%;
+                top: 150px;
+                height: 50px;
+                width: 10%;
+                margin: 0px;
+                margin-bottom: 75px;
+                border: 3px solid rgb(0, 0, 0);
+            }
+            .unitGenPurchaseText {
+                position: relative;
+                margin: 0px;
+                margin-top: 5px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                font-family: monospace;
+            }
+
+
+            .purchaseInfo {
+                position: absolute;
+                border: 3px solid rgb(0, 0, 0);
+                height: 50px;
+            }
+            #purchaseCountNumberDisplay {
+                top: 10px;
+                left: 5%;
+                width: 20%;
+            }
+            #purchaseCountIncrease {
+                top: 80px;
+                left: 5%;
+                width: 9%;
+                background-color: lime;
+            }
+            #purchaseCountDecrease {
+                top: 80px;
+                left: 16%;
+                width: 9%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="generateUnits">
+            <p id="generateText" class="unitGenPurchaseText">1 Unit</p>
+        </div>
+
+        <div id="purchaseCountNumberDisplay" class="purchaseInfo">
+            <p class="unitGenPurchaseText">
+                Purchase Amount:<br><span id="purchaseCountNumber">1</span> Item(s)
+            </p>
+        </div>
+        <div id="purchaseCountIncrease" class="purchaseInfo">
+            <p class="unitGenPurchaseText">Multiply purchase amount by 10</p>
+        </div>
+        <div id="purchaseCountDecrease" class="purchaseInfo">
+            <p class="unitGenPurchaseText">Divide purchase amount by 10</p>
+        </div>
+        
+
+
+
+        <script>
+            /*********Defining necessary variables*********/
+            //The purchase amount variables
+            var purchaseCountNumber = document.getElementById("purchaseCountNumber");
+            var purchaseCountIncrease = document.getElementById("purchaseCountIncrease");
+            var purchaseCountDecrease = document.getElementById("purchaseCountDecrease");
+            var purchaseCount = 1;
+
+            //The generate units button
+            var generateUnits = document.getElementById("generateUnits");
+
+            //The number of gens shown controller
+            var numberOfGens = 6;
+
+            //The needed arrays for display
+            var unitGen = [];
+            var unitGenBackground = [];
+            var unitGenText = [];
+            var unitGenCount = [];
+            var unitGenPurchase = [null, ];
+            var unitGenPurchaseText = [null, ];
+            var unitGenPriceTag = [null, ];
+
+            //The needed arrays for functionality
+            var unitGensOwned = [];
+            var unitGensTimer = [null, ];
+            
+
+
+
+            /*********Setting up the elemements of the page*********/
+            //This is within a function so that it can be called again to add one more generator 
+            //tier later on. The startingCreationNum value is 0 when the page is made, but whenever 
+            //it's called again, it is one less than the total number of gens so that the function 
+            //cleanly creates one more gen tier
+            var createTheGens = function(startingCreationNum) {
+                //For every i in this function, a new generator and generator purchase button is 
+                //created, with proper labels and correct numbers
+                for(i = startingCreationNum; i < numberOfGens; i++) {
+                    //Starts the user off with 0 generators owned for the gen type
+                    unitGensOwned.push(0);
+                    //Creates a text node that allows the price tag boxes to display correct 
+                    //words/numbers
+                    var priceTagEnding = document.createTextNode(" Unit Gen " + (i-1).toString() + "s");
+                    var initialPriceTagEnding = document.createTextNode(" Units");
+
+                    //The if here makes it so no purchase button is placed next to the units owned 
+                    //display, as there is no point in having one there
+                    if (i > 0) {
+                        //Creates the purchase box(div) and gives it its class name and unique id
+                        unitGenPurchase.push(document.createElement("div"));
+                            unitGenPurchase[i].className = "unitGenPurchase";
+                            unitGenPurchase[i].id = "unitGen" + i.toString() + "Purchase";
+
+                            //Creates the p element that contains the purchase div's text, gives it a 
+                            //class name, and sets its text content
+                            unitGenPurchaseText.push(document.createElement("p"));
+                                unitGenPurchaseText[i].className = "unitGenPurchaseText";
+                                unitGenPurchaseText[i].innerHTML = "Cost:<br>";
+
+                                //Creates the span that displays the actual cost of the purchase, which 
+                                //varies based on the number of items being purchased
+                                //Also gives it a class name
+                                unitGenPriceTag.push(document.createElement("span"));
+                                    unitGenPriceTag[i].className = "unitGenPriceTag";
+                                    unitGenPriceTag[i].innerHTML = 10 * purchaseCount;
+                    }
+
+                    
+
+
+                    //Creates the generator's display box(div) and gives it a class name and unique id
+                    unitGen.push(document.createElement("div"));
+                        unitGen[i].className = "unitBox";
+                        unitGen[i].id = "unitGen" + i.toString();
+
+                        //Creates the background for the gen display box(which will be animated later), 
+                        //and gives it a class name and unique id
+                        unitGenBackground.push(document.createElement("div"));
+                            unitGenBackground[i].className = "unitBackground";
+                            unitGenBackground[i].id = "unitGen" + i.toString() + "Background";
+
+                        //Creates the p element that contains the gen display box's text, gives it a 
+                        //class name, and sets its text content
+                        unitGenText.push(document.createElement("p"));
+                            unitGenText[i].className = "unitText";
+                            if (i > 0) {
+                            unitGenText[i].innerHTML = "Unit Gen " + i.toString() + "s Owned: ";
+                            } else {
+                                //Setting the units owned button to the correct display
+                                unitGenText[0].innerHTML = "Units Owned: ";
+                            }
+
+                            //Creates the span element that displays how many of the gen is owned, 
+                            //which starts off at 0 and will be changed later
+                            unitGenCount.push(document.createElement("span"));
+                                unitGenCount[i].id = "unitGen" + i.toString() + "Count";
+                                unitGenCount[i].innerHTML = unitGensOwned[i];
+
+                    //The if here prevents a purchase button from being placed next to the units 
+                    //owned display
+                    if (i > 0) {
+                        //Places all of the purchase buttons on the page
+                        document.body.appendChild(unitGenPurchase[i]);
+                        unitGenPurchase[i].appendChild(unitGenPurchaseText[i]);
+                        unitGenPurchaseText[i].appendChild(unitGenPriceTag[i]);
+                        if (i > 1) {
+                        unitGenPurchaseText[i].appendChild(priceTagEnding);
+                        } else {
+                            unitGenPurchaseText[i].appendChild(initialPriceTagEnding);
+                        }
+                    }
+                    
+                    //Places all of the gen display boxes on the page
+                    document.body.appendChild(unitGen[i]);
+                    unitGen[i].appendChild(unitGenBackground[i]);
+                    unitGen[i].appendChild(unitGenText[i]);
+                    unitGenText[i].appendChild(unitGenCount[i]);
+
+                }
+            }
+            //Simply calling the function to set up the page
+            createTheGens(0);
+
+
+
+
+            /*********Adding animation/generator functionality*********/
+            //Reason for this being in a function is similar to that of the 
+            //"Setting up the elemements of the page" section
+            var establishTimers = function (startingCreationNum) {
+                //This starts a timer for every gen tier on the page at a value of 0, which will go up
+                //over time due to the function below
+                for(i = startingCreationNum; i < numberOfGens; i++) {
+                        unitGensTimer.push(0);
+                }
+            }
+            //Simply calling the function with a start value of 1 so that nothing is created 
+            //next to the units display, which would be useless
+            establishTimers(1);
+
+            //This function is called continuously and acts like a timer, controlling the animations
+            //on the page and making the generators actually run. There is no need to re-call this 
+            //function when a new gen tier is made because this one is caled continuously anyways.
+            var animationAndGeneratorProgram = function() {
+                for(i = 1; i < numberOfGens; i++) {
+                    //This adds 1 to every timer(there is one timer per gen tier)
+                    unitGensTimer[i]++;
+                    //This holds the timer of each gen that hasn't been bought at 0
+                    if (unitGensOwned[i] === 0) {
+                        unitGensTimer[i] = 0;
+                    }
+                    //This sets the background width of each gen tier proportional to how close the gen 
+                    //is to producing items
+                    unitGenBackground[i].style.width = unitGensTimer[i] / 2.5 / i + "%";
+
+                    //This if statement becomes true for a timer when the timer has finished
+                    if ((unitGensTimer[i] / 2.5 / i) >= 100) {
+                        //This resets the timer for the finished gen
+                        unitGensTimer[i] = 0;
+                        //This actually produces the items that the gen produces every cycle
+                        unitGensOwned[i-1] += unitGensOwned[i];
+                        //This displays the new number of items after production
+                        unitGenCount[i-1].innerHTML = unitGensOwned[i-1];
+                    }
+
+                    //This controls the color of the backgrounds of every purchase gens button
+                    if (unitGensOwned[i-1] >= 10 * purchaseCount) {
+                        //This sets the affordable buttons to a green background
+                        unitGenPurchase[i].style.backgroundColor = "lime";
+                    } else {
+                        //This sets all other ones to a white background
+                        unitGenPurchase[i].style.backgroundColor = "white";
+                    }
+
+                    //This controls the background color of the decrease purchase amount button
+                    if (purchaseCount > 1) {
+                        //This sets it to green if it can be used
+                        purchaseCountDecrease.style.backgroundColor = "lime";
+                    } else {
+                        //Or to white if it can't
+                        purchaseCountDecrease.style.backgroundColor = "white";
+                    }
+                }
+            }
+            //This runs the function constantly
+            setInterval(animationAndGeneratorProgram, 1);
+
+
+
+
+            /*********Adding user interaction and going insane*********/
+            //This is the function that gens called when the generate units button is clicked
+            var generateUnitsIsClicked = function () {
+                //This generates 1 unit
+                unitGensOwned[0]++;
+                //This makes the units display display the correct number of units
+                unitGenCount[0].innerHTML = unitGensOwned[0];
+            };
+            //This makes the generate units button listen for a click
+            generateUnits.addEventListener("click", generateUnitsIsClicked);
+
+            //This makes the increase purchase amount button work
+            var purchaseCountIncreaseIsClicked = function () {
+                //This actually changes the purchase amount
+                purchaseCount = purchaseCount*10;
+                //This makes the purchase amount display display the correct number
+                purchaseCountNumber.innerHTML = purchaseCount;
+                //This makes each gen purchase button display the correct number
+                for (i = 1; i < numberOfGens; i++) {
+                    unitGenPriceTag[i].innerHTML = 10 * purchaseCount;
+                }
+            };
+            //This makes the button listen for a click
+            purchaseCountIncrease.addEventListener("click", purchaseCountIncreaseIsClicked);
+
+            //This makes the decrease purchase amount button work
+            var purchaseCountDecreaseIsClicked = function () {
+                //This makes it so the decrease purchase amount button only works when the purchase 
+                //is >1
+                if (purchaseCount > 1) {
+                    //This actually changes the purchase amount
+                    purchaseCount = purchaseCount/10;
+                    //This makes the purchase amount display display the correct number
+                    purchaseCountNumber.innerHTML = purchaseCount;
+                    //This makes each gen purchase button display the correct number
+                    for (i = 1; i < numberOfGens; i++) {
+                        unitGenPriceTag[i].innerHTML = 10 * purchaseCount;
+                    }
+                }
+            };
+             //This makes the button listen for a click
+            purchaseCountDecrease.addEventListener("click", purchaseCountDecreaseIsClicked);
+
+            //This makes each purchase gen button work, and it's a mess because I don't know how 
+            //to make JS account for what element the user is hovering over
+            var unitGenPurchaseIsClicked = function(e) {
+                //This was how I made JS consider which purchase button was being clicked, very messy
+                    var i = Math.floor((e.pageY - 275)/131);
+                    //This makes sure the purchase can actually be afforded
+                    if (unitGensOwned[i-1] >= 10*purchaseCount) {
+                        //This spends the gens/units being spent and displays the new number 
+                        //of gens/units
+                        unitGensOwned[i-1] -= 10*purchaseCount;
+                        unitGenCount[i-1].innerHTML = unitGensOwned[i-1];
+
+                        //This buys the gens being bought and displays the new number 
+                        //of gens
+                        unitGensOwned[i] += purchaseCount;
+                        unitGenCount[i].innerHTML = unitGensOwned[i];
+                    }
+            };
+
+            //Reason for this being in a function is similar to that of the 
+            //"Setting up the elemements of the page" section
+            var setupPurchaseEventListeners = function (startingCreationNum) {
+                //The creates an event listener for every purchase button that calls 
+                //the purchase gens function(unitGenPurchaseIsClicked)
+                for (i = startingCreationNum; i < numberOfGens; i++) {
+                    unitGenPurchase[i].addEventListener("click", unitGenPurchaseIsClicked);
+                }
+            }
+            //Simply calling the function with a start value of 1 so that nothing is created 
+            //next to the units display, which would be useless
+            setupPurchaseEventListeners(1);
+
+
+
+            /*********Adding infinite replication*********/
+            //This is used to create new gen tiers, and is very sloppy right now
+            var infiniteGenGeneration = function () {
+                for (i = 1; i < numberOfGens; i++) {
+                    if (i === numberOfGens-1 && unitGensOwned[i] > 0) {
+                        numberOfGens++;
+                        createTheGens(numberOfGens-1);
+                        establishTimers(numberOfGens-1);
+                        setupPurchaseEventListeners(numberOfGens-1);
+                    }
+
+                    
+                }
+            }
+            setInterval(infiniteGenGeneration, 25);
+        </script>
+    </body>
+</html>

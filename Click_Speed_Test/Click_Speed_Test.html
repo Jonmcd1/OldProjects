@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Click Speed Test</title>
+        <style>
+            .allBoxes {
+                position: absolute;
+                margin: 0px;
+            }
+            
+            .smallDisplayBox {
+                left: 45%;
+                width: 10%;
+                height: 150px;
+                border: 3px solid black;
+            }
+            .smallDisplayText {
+                position: relative;
+                top: 40px;
+                font-size: 64px;
+                text-align: center;
+            }
+
+            #timerHeaderBox {
+                top: 50px;
+                left: 40%;
+                width: 20%;
+                height: 50px;
+            }
+            #timerHeaderText {
+                position: relative;
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            #timerBox {
+                top: 125px;
+            }
+
+            #clickBox {
+                top: 300px;
+                left: 20%;
+                width: 60%;
+                height: 250px;
+                border: 3px solid black;
+            }
+            #clickText {
+                left: 35%;
+                top: 100px;
+                width: 30%;
+                font-size: 48px;
+                text-align: center;
+            }
+
+            #clickHeaderBox {
+                top: 575px;
+                left: 40%;
+                width: 20%;
+                height: 50px;
+            }
+            #clickHeaderText {
+                position: relative;
+                font-size: 40px;
+                text-align: center;
+            }
+
+            #clickDisplayBox {
+                top: 650px;
+            }
+
+            #tempResultsBox {
+                top: 825px;
+                margin-bottom: 100px;
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+        <div id="timerHeaderBox" class="allBoxes smallDisplayBox">
+            <p id="timerHeaderText" class="allBoxes">Time counts down here</p>
+        </div>
+        <div id="timerBox" class="allBoxes smallDisplayBox">
+            <p id="timerText" class="allBoxes smallDisplayText">Time counts down here</p>
+        </div>
+
+        <div id="clickBox" class="allBoxes">
+            <p id="clickText" class="allBoxes">Click Here!</p>
+        </div>
+
+        <div id="clickHeaderBox" class="allBoxes smallDisplayBox">
+            <p id="clickHeaderText" class="allBoxes">Clicks count up here</p>
+        </div>
+        <div id="clickDisplayBox" class="allBoxes smallDisplayBox">
+            <p id="clickDisplayText" class="allBoxes smallDisplayText">Clicks count up here</p>
+        </div>
+
+
+        <div id="tempResultsBox" class="allBoxes smallDisplayBox">
+            <p id="tempResultsText" class="allBoxes smallDisplayText"></p>
+        </div>
+
+
+        <script>
+            var timerBox = document.getElementById("timerBox");
+            var timerText = document.getElementById("timerText");
+
+            var clickBox = document.getElementById("clickBox");
+            var clickText = document.getElementById("clickText");
+
+            var clickDisplayBox = document.getElementById("clickDisplayBox");
+            var clickDislpayText = document.getElementById("clickDisplayText");
+
+            var tempResultsBox = document.getElementById("tempResultsBox");
+            var tempResultsText = document.getElementById("tempResultsText");
+
+            var timeElapsed;
+            var clicksCompleted;
+            var countingUp;
+
+            var initializeTest = function() {
+                timeElapsed = 0;
+                timerText.innerHTML = timeElapsed;
+
+                clicksCompleted = 0;
+                clickDislpayText.innerHTML = clicksCompleted;
+            }
+            initializeTest();
+            
+
+
+            var runTest = function () {
+                if (timeElapsed === 0) {
+                    countingUp = setInterval(countUpTimer, 1);
+                }
+                clicksCompleted++;
+                clickDislpayText.innerHTML = clicksCompleted;
+                
+                
+            }
+            clickBox.addEventListener("click", runTest);
+
+            var countUpTimer = function () {
+                timeElapsed += 0.004;
+                timerText.innerHTML = timeElapsed.toFixed(3);
+                if (timeElapsed >= 10) {
+                    clearInterval(countingUp);
+                    tempResultsText.innerHTML = (clicksCompleted / timeElapsed).toFixed(1);
+                    initializeTest();
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

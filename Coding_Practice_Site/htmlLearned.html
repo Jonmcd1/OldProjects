@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTML Learned</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    </head>
+    <body>
+        <div id="headerBox">
+            <h1 id="headerTitle">HTML Learned</h1>
+        </div>
+
+        <div id="navBox">
+            <a id="nav1" class="navText" href="#termsLearnedHeader">Terms</a>
+            <a id="nav2" class="navText" href="#conceptsLearnedHeader">Concepts</a>
+            <a id="nav3" class="navText" href="#syntaxLearnedHeader">Syntax</a>
+        </div>
+
+        <div id="termsLearned">
+            <p id="termsLearnedHeader">Terms</p>
+
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;html&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag allows html pages to exist. This tag basically tells
+                     the program that whatever gets written between it and its 
+                     closing tag is HTML code. Without it, the program won't 
+                     know when something is HTML code, and won't register it as such.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>N/A</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/html&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    N/A
+                </p>
+
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;head&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    All of the metadata of an HTML document is stored here. 
+                    Basically, this is where a lot of important information 
+                    that doesn't get seen by the user goes.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>N/A</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/head&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    N/A
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;link&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    The "link" tag is a piece of metadata that connects 
+                    other documents to the HTML document that the tag is 
+                    used in. While it has many uses, its most common 
+                    application is the connect an external stylesheet 
+                    to an HTML page.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>rel:</li>
+                    <li>type:</li>
+                    <li>href: This attribute provides the HTML document with the 
+                        location/name of the document being linked to it, which 
+                        allows the link to work.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>No closing tag needed</li>
+                    <li>Goes in the head of the document</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    N/A
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;title&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag is a piece of metadata that gives the page 
+                    created by the HTML document a name. While this tag does 
+                    nothing to the page itself, it does control what is displayed 
+                    on the page's tab.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>N/A</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/title&gt;)</li>
+                    <li>Goes in the head of the document</li>
+                    <li>Using this is strongly recommended, but not required, 
+                        to make the page work.</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    Look at this page's tab on the browser! It should say, "HTML Learned". 
+                    That's because that is the title of the page.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;style&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag is a piece of metadata that allows CSS(another 
+                    programming language) to be used within an HTML document. 
+                    CSS can be written between it and its closing tag, and the 
+                    program will understand that it's CSS, and apply it correctly 
+                    to the webpage.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>N/A</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/style&gt;)</li>
+                    <li>Goes in the head of the document</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    N/A
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;body&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    Everything that gets seen by the user of a webpage goes 
+                    between this tag and its closing tag. In short, this tag 
+                    contains everything that gets displayed on a page.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>N/A</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/body&gt;)</li>
+                    <li>Sometimes adds random offsets to webpages. Very annoying.</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    Everything seen on ths page! All of it is contained within 
+                    the body of the HTML code that makes up this page.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;h1-h6&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    h1, h2, h3, h4, h5, and h6 are all header tags that display text. 
+                    Starting from h1, the header tags get progressively smaller and 
+                    less important. These header tags are often used to display the 
+                    titles/labels of webpages/sections of webpages.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/h1&gt;, &lt;/h2&gt;, etc)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <h1 class="termDescText">This is an h1 tag.</h1>
+                    <h2 class="termDescText">This is an h2 tag.</h2>
+                    <h3 class="termDescText">This is an h3 tag.</h3>
+                    <h4 class="termDescText">This is an h4 tag.</h4>
+                    <h5 class="termDescText">This is an h5 tag.</h5>
+                    <h6 class="termDescText">This is an h6 tag.</h6>
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;p&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This is the paragraph tag, which is obviously used to display 
+                    paragraphs. This tag is most commonly used for large sections of 
+                    text.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/p&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This text is a p tag.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;a&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag is used to create links to other websites, as well as other 
+                    parts of the website the tag is on. Any piece of text that links to 
+                    anything else uses this tag.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>href: This attribute provides the HTML document with the 
+                        location/name of the document being linked to it, which 
+                        allows the link to work.</li>
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/a&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The "Terms," "Concepts," and "Syntax" texts in the navigation are 
+                    all a tags that link to other parts of this page. The "Home" text in 
+                    the footer is an a tag that links to another page.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;img&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag allows images to exist on webpages. It's as simple as 
+                    that: this tag is how images get displayed.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>src: This attribute provides the HTML document with the 
+                        location/name/URL of the image being linked to it, which 
+                        allows the image to be displayed and controls what image 
+                        it is.</li>
+                        <li>(Optional) id: Gives the tag an id.</li>
+                        <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Does not need a closing tag</li>
+                    <li>Almost always needs its height or width customized, as 
+                        the default size of it is almost never what is desired
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <img class="termItemDesc termItemDescBottom imgWithinDiv" src="photos/coolImage.jpg">
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;div&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    A div tag creates a new box for everything contained between 
+                    it and its closing tag. This does hardly anything on its own, but 
+                    it is extremely useful for incorportaing CSS into webpages. Divs 
+                    are extremely useful for formatting webpages.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/div&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The box containing everything about thi tag is a div. 
+                    So is every other box like this one. This page has several dozen 
+                    divs within it, and this overall webite contains well over 100.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;span&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    A span tag distingushes any text contanied between it and its closing 
+                    tag from other text around it, without changing the position of the 
+                    text. This is very useful for customizing certain sections of text 
+                    with CSS.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/span&gt;)</li>
+                    <li>Nearly useless without an id or a class</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The text that is <span id="spanExample">red</span> is contained within 
+                    a span.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;table&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag is that main tag for creating a table. All of a table's 
+                    terms/information are contanied between this tag and its closing tag.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/table&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                    <table class="termItemDesc termItemDescBottom">
+                        <thead>
+                            <tr>
+                                <th>This is a table header</th>
+                                <th>This is also a table header</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>This is a table box</td>
+                                <td>This is also a table box</td>
+                            </tr>
+                            <tr>
+                                <td>This is a table box in a new row</td>
+                                <td>All of this is contained within a table tag</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;tbody&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This is where the body of a table(as opposed to its header) 
+                    is programmed. Generally, the more specific information of a table 
+                    is stored here.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/tbody&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    See the "&lt;table&gt;" section(rows 2 and 3 are in the body of 
+                    the table).
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;thead&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This is the headersof a table are programmed. These are generally used 
+                    to label catgories, and the items in these categories are programmed in 
+                    the body of the table.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/thead&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    See the "&lt;table&gt;" section(row 1 is in the head of 
+                    the table).
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;tr&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This tag contains a row of table boxes between it and its closing 
+                    tag. The number of rows in a table is equal to the number of times 
+                    this tag is used within it. Anything written in the first &lt;tr&gt; 
+                    tag will go in the first row of the table, anything written in the 
+                    second &lt;tr&gt; tag will go in the second row of the table, and 
+                    so on.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/tr&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    See the "&lt;table&gt;" section(rows 1, 2, and 3 are only 
+                    separate rows because they are contained within 3 different 
+                    &lt;tr&gt; tags).
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;th&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    Each individual header box is programmed between this tag and its 
+                    closing tag. This tag goes in a table row, and the row can have any 
+                    number of &lt;th&gt; tags. The first tag in the row will go in column 
+                    1, the second tag in the row will go in column 2, and so on.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/th&gt;)</li>
+                    <li>Text within this tag is bolded by default</li>
+                    <li>This tag goes in the &lt;thead&gt; section, and also 
+                        within a &lt;tr&gt;
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    See the "&lt;table&gt;" section(the two boxes in row 1 are contained 
+                    within &lt;th&gt; tags).
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;td&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    Each individual table body box is programmed between this tag and its 
+                    closing tag. This tag goes in a table row, and the row can have any 
+                    number of &lt;td&gt; tags. The first tag in the row will go in column 
+                    1, the second tag in the row will go in column 2, and so on.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/td&gt;)</li>
+                    <li>This tag goes in the &lt;tbody&gt; section, and also 
+                        within a &lt;tr&gt;
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    See the "&lt;table&gt;" section(the four boxes in rows 2 and 3 are 
+                    contained within &lt;td&gt; tags).
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">&lt;em&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This is a pretty simple tag: any text contained within it and its 
+                    closing tag will be italicized. 
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/em&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <em>This text is contained within the &lt;em&gt; tag.</em>
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">&lt;strong&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This is a pretty simple tag: any text contained within it and its 
+                    closing tag will be bolded. 
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Optional) id: Gives the tag an id.</li>
+                    <li>(Optional) class: Gives the tag a class.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Needs a closing tag(&lt;/strong&gt;)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <strong>This text is contained within the &lt;strong&gt; tag.</strong>
+                </p>
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="conceptsLearned">
+            <p id="conceptsLearnedHeader">Concepts</p>
+
+            <div class="left conceptItem">
+                <h3 class="conceptItemHeader">The Box Model</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+            <div class="right conceptItem">
+                <h3 class="conceptItemHeader">(Concept)</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="syntaxLearned bottomLearned">
+            <p id="syntaxLearnedHeader">Syntax</p>
+
+            <div class="left syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+            <div class="right syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+
+
+            <div id="divExtender"></div>
+        </div>
+
+
+
+
+        <div id="pageExtender"></div>
+
+        <div id="footerBox">
+            <h6 id="footer1" class="footerText">ⒸJonathan McDevitt</h6>
+            <a id="footer2" class="footerText" href="index.html">Home</a>
+        </div>
+    </body>
+</html>
+
+
+
+<!--
+    Format for adding another term: 
+            <div class="(left || right) termItem">
+                <h3 class="termItemHeader">&lt;(Term)&gt;</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+
+
+    Format for adding another concept:
+            <div class="(left || right) conceptItem">
+                <h3 class="conceptItemHeader">(Concept)</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    (Description of concept)
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+
+
+    Format for adding another syntax item: 
+            <div class="(left || right) syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    (Description of syntax)
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    (Examples of syntax being used)
+                </p>
+
+            </div>
+-->

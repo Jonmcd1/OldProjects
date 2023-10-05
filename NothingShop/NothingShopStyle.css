@@ -1,0 +1,54 @@
+div {
+    border: 3px solid black;
+}
+img {
+    width: 100%;
+}
+table {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+p {
+    padding: 10px;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+
+#pageHeader {
+    background-color: rgb(128, 64, 255);
+    color: white;
+}
+#pageNavigation {
+    background-color: rgb(64, 128, 255);
+    color: white;
+}
+#leftNav {
+    position: relative;
+    width: 10%;
+    left: 5%;
+}
+#midNav {
+    position: relative;
+    width: 10%;
+    left: 45%;
+}
+#rightNav {
+    position: relative;
+    width: 10%;
+    right: 5%;
+}
+
+#descriptionText {
+    text-align: left;
+}

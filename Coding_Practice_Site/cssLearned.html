@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS Learned</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    </head>
+    <body>
+        <div id="headerBox">
+            <h1 id="headerTitle">CSS Learned</h1>
+        </div>
+
+        <div id="navBox">
+            <a id="nav1" class="navText" href="#termsLearnedHeader">Terms</a>
+            <a id="nav2" class="navText" href="#conceptsLearnedHeader">Concepts</a>
+            <a id="nav3" class="navText" href="#syntaxLearnedHeader">Syntax</a>
+        </div>
+
+        <div id="termsLearned">
+            <p id="termsLearnedHeader">Terms</p>
+
+            <div class="left termItem">
+                <h3 class="termItemHeader">color</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This controls the color of the text in the selected region.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>rgb(x, y, z): identifies the desired color in RGB format</li>
+                    <li>#uvwxyz: identifies the desired color in hexadecimal format</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>None</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This text has been colored blue by the color element.
+                </p>
+
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">background-color</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This controls the background color of the selected region.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>rgb(x, y, z): identifies the desired color in RGB format</li>
+                    <li>#uvwxyz: identifies the desired color in hexadecimal format</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>This coloirng also applies to the padding of the selected region.</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The background of this box has been colored dark gray.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">width</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This controls the width of a selected region.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired width.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>None</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The width of this box has been set to 40%.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">height</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This controls the height of a selected region.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired height.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Setting the height AND width of a box can often result in problems, 
+                        so only do this when it's absolutely necessary.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The height of the header of this page has been set to 100px.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">position</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the way in which the selected region is 
+                    positioned.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>relative: makes it so that any adjustments to the selected region's 
+                        position are registered as displacement from the default position.
+                    </li>
+                    <li>absolute: makes it so the selected region ignores all other 
+                        regions/boxes/sections, and has its position set exclusively 
+                        by the top/bottom/left/right elements.
+                    </li>
+                    <li>fixed: this is similar to the absolute setting, except the fixed 
+                        setting makes it so the selected region NEVER moves on the screen, 
+                        even when the user scrolls.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>This does not set the actual position of the selected region. 
+                        It only sets the way in which the position is set
+                    </li>
+                    <li>When a region is set to a fixed or absolute position, 
+                        it goes to the top right of the page by default
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This box's position has been set to relative, and the footer's position 
+                    has been set to fixed.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">top/bottom/left/right</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    These elements contorl the actual position of the selected region. 
+                    The top element controls how far the selected region is from the top, 
+                    the bottom element controls how far the selected region is from the 
+                    bottom, and so on.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired shift in position.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Top OR bottom can be used, and left OR right can be used, but these 
+                        pairs can't both be used on the same selection
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The header of the page is set to top: 0px, the navigation of the page 
+                    is set to top: 100px, and the footer of the page is set to bottom: 0px.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">font-size</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the size of the selected text.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired text size.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>It is strongly suggested to have the font-size of more important 
+                        text be bigger
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The font-size of this text is set to 20px.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">font-family</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element, predictably, controls the font family of the 
+                    selected text.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Georgia, arial, monospace, and helvetica: these are just a few of 
+                        the many font families that can be used.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Some devices don't register certain font families, so it's 
+                        recommended to have a secondary font family set in case this 
+                        happens to some users
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <span id="fontFamilyExample1">This text has a font-family of georgia.</span><br>
+                    <span id="fontFamilyExample2">This text has a font-family of monospace.</span><br>
+                    <span id="fontFamilyExample3">This text has a font-family of times new roman.</span>
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">font-weight</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the weight of selected text, or in other words, 
+                    controls how bolded the text is.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>100-900: these numbers correspond to how bolded the text is, where 
+                        100 is the least bold and 900 is the most bold
+                    </li>
+                    <li>normal: this makes the text have a normal/standard weight</li>
+                    <li>bold: this makes the text bold</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Most often, using numbers to define the weight of text isn't 
+                        ideal, as usually only two of those numbers register font weights: 
+                        400 and 700
+                    </li>
+                    <li>If a numberical font weight is used and it doesn't correspond to 
+                        a weight: the program will just round the number to the nearest 
+                        number that <em>does</em> have a weight
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <span id="fontWeightExample1">This text has a normal weight.</span><br>
+                    <span id="fontWeightExample2">This text has a bold weight.</span>
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">text-decoration</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This controls the decoration of the selected text, which is most 
+                    frequently used to simply control whether the selected text is 
+                    underlined or not.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>none: this makes it so the selected text has no decoration</li>
+                    <li>underlined: this makes it so the selected text is underlined</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>It's normally a good idea to only have links underlined, and nothing else</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This text has no decoration.<br>
+                    <span id="textDecorationExample1">This text has an underlined decoration.</span>
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">font-style</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the style of the selected text. This is mainly 
+                    used to italicize selected text.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>normal: does not give the selected text any special style</li>
+                    <li>italic: italicizes the selected text</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Text has a normal font style by default</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    <span id="fontStyleExample1">This text has an italicized font style.</span>
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">text-align</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls how text aligns within its box. 
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>left: causes the text to align with the left of its box</li>
+                    <li>center: causes the text to align with the center of its box</li>
+                    <li>right: causes the text to align with the right of its box</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Text aligns with the left of its box by default</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This text is aligned with the center of its box, and the text in the 
+                    above list is aligned with the left of its box.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">margin</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the size of the margin of the selected regions. 
+                    The margin of a box is the space between its content and its border.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired margin size.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>"-top", "-bottom", "-left", and "-right" can be added to the 
+                        "margin" term to control specific sides of the margin
+                    </li>
+                    <li>The margin of a box can be many different values by default, 
+                        so it's best to always set the margin of boxes
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This box has a margin-bottom value of 10px and a margin-top value of 
+                    20px.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">border</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the border of the selected regions.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired border size.</li>
+                    <li>solid, dashed, ridged: a few of the many border styles that can 
+                        be applied to borders
+                    </li>
+                    <li>rgb(x, y, z): identifies the desired color in RGB format</li>
+                    <li>#uvwxyz: identifies the desired color in hexadecimal format</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>"-top", "-bottom", "-left", and "-right" can be added to the 
+                        "border" term to control specific sides of the border
+                    </li>
+                    <li>The border of a box is rectangular by default</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This box has a solid, gray border, which is 5px thick.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">padding</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls the size of the padding of the selected regions. 
+                    The padding of a box is the space between its border and the outside 
+                    of the box.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>xpx/xem/x%: identifies the desired padding size.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>"-top", "-bottom", "-left", and "-right" can be added to the 
+                        "padding" term to control specific sides of the padding
+                    </li>
+                    <li>Padding is generally set to 0px by default</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This text has a padding-bottom value of 20px.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">z-index</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls which boxes show up in front of others. 
+                    Boxes with a higher z-index value than others will show up in front 
+                    of those others, should they overlap.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>x: identifies the numerical z-index value of the selected 
+                        box(es).
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>It's best to customize the z-index value of all boxes, as the 
+                        program can give different boxes different z-index values by 
+                        default, which can cause problems when things overlap
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The header of this page has a z-index value of 11, so that it shows up 
+                    in front of everything.
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">float</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element makes a box float, and controls where the box floats to. 
+                    "Floating" is a different way of positioning boxes, and is usually used 
+                    to very easily move them to the left or right of the page.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>left: causes the selected box(es) to float left</li>
+                    <li>right: causes the selected box(es) to float right</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Boxes do not float at all by default</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    This box is floating left(as well as every other term box on the left 
+                    side of the page), and every term box on the right side of the page 
+                    is floating right.
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">clear</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This element controls what selected box(es) clear and what they don't. 
+                    "Clearing" something refers to being positioned below it. Clearing 
+                    applies almost exclusively to floating boxes.
+                </p>
+                <h4 class="termItemSubheader">Attributes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>none: causes the selected box(es) to clear nothing that floats</li>
+                    <li>left: causes the selected box(es) to clear boxes that float left</li>
+                    <li>right: causes the selected box(es) to clear boxes that float right</li>
+                    <li>both: causes the selected box(es) to clear boxes that float left and right</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>It is highly recommended to define this element for any box that 
+                        is meant to go directly under floating boxes, as they sometimes don't 
+                        do this when this isn't defined
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    The "Concepts" div is set to clear both, so it goes below all of the 
+                    term boxes(including this one).
+                </p>
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="conceptsLearned">
+            <p id="conceptsLearnedHeader">Concepts</p>
+
+            <div class="left conceptItem">
+                <h3 class="conceptItemHeader">Selectors</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+            <div class="right conceptItem">
+                <h3 class="conceptItemHeader">The Cascade</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="syntaxLearned bottomLearned">
+            <p id="syntaxLearnedHeader">Syntax</p>
+
+            <div class="left syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+            <div class="right syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+
+
+            <div id="divExtender"></div>
+        </div>
+
+
+
+
+        <div id="pageExtender"></div>
+
+        <div id="footerBox">
+            <h6 id="footer1" class="footerText">ⒸJonathan McDevitt</h6>
+            <a id="footer2" class="footerText" href="index.html">Home</a>
+        </div>
+    </body>
+</html>

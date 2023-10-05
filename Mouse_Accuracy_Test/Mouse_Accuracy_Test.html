@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mouse Accuracy Test</title>
+        <style>
+            body {
+                background-color: rgb(50, 50, 50);
+            }
+            th {
+                padding: 15px;
+                border: 3px solid black;
+            }
+            td {
+                padding: 15px;
+                border: 3px solid black;
+            }
+
+            .coloredElement {
+                background-color: rgb(0, 128, 0);
+            }
+            
+            #testStarter {
+                position: absolute;
+                left: 800px;
+                top: 50px;
+                width: 300px;
+                height: 200px;
+                border: 3px solid black;
+            }
+            #testStarterText {
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                font-size: 128px;
+                font-weight: bold;
+                margin: 0px;
+            }
+
+            .controller {
+                position: absolute;
+                top: 50px;
+                width: 275px;
+                height: 200px;
+                border: 3px solid black;
+            }
+            .controllerHeader {
+                position: absolute;
+                top: 0px;
+                font-size: 66px;
+                font-weight: bold;
+                margin: 0px;
+            }
+            .controllerLabel {
+                position: absolute;
+                top: 102px;
+                font-size: 55px;
+                font-weight: bold;
+                margin: 0px;
+            }
+            .arrowController {
+                position: absolute;
+                margin: 0px;
+                height: 50px;
+                bottom: 40px;
+            }
+            .rightArrow {
+                right: 10px;
+            }
+            .leftArrow {
+                left: 10px;
+            }
+
+            #testDurationController {
+                left: 150px;
+            }
+            #testDurationControllerHeader {
+                left: 35px;
+            }
+            #testDurationLabel {
+                left: 92px;
+            }
+
+            #targetGenSpeedController {
+                left: 475px;
+            }
+            #targetGenSpeedControllerHeader {
+                left: 5px;
+            }
+            #targetGenSpeedLabel {
+                left: 75px;
+            }
+
+            #targetSizeController {
+                left: 1150px;
+            }
+            #targetSizeControllerHeader {
+                left: 80px;
+            }
+            #targetSizeLabel {
+                left: 80px;
+            }
+
+            #pageColorController {
+                left: 1475px;
+            }
+            #pageColorControllerHeader {
+                left: 55px;
+            }
+            .pageColorSelectors {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 3px solid black;
+            }
+            #makePageRed {
+                background-color: rgb(255, 0, 0);
+                left: 20px;
+                bottom: 65px;
+            }
+            #makePageOrange {
+                background-color: rgb(255, 128, 0);
+                left: 106px;
+                bottom: 65px;
+            }
+            #makePageYellow {
+                background-color: rgb(255, 255, 0);
+                right: 20px;
+                bottom: 65px;
+            }
+            #makePageGreen {
+                background-color: rgb(0, 128, 0);
+                left: 20px;
+                bottom: 5px;
+            }
+            #makePageBlue {
+                background-color: rgb(0, 0, 255);
+                left: 106px;
+                bottom: 5px;
+            }
+            #makePagePurple {
+                background-color: rgb(128, 0, 255);
+                right: 20px;
+                bottom: 5px;
+            }
+            
+
+            #mouseAccuracyBox {
+                position: absolute;
+                background-color: rgb(25, 25, 25);
+                left: 150px;
+                top: 300px;
+                width: 1600px;
+                height: 800px;
+                border: 3px solid black;
+            }
+
+            .target {
+                position: absolute;
+                background-color: rgb(0, 128, 0);
+                border-radius: 50%;
+                width: 0px;
+                height: 0px;
+            }
+
+            #scoreTable {
+                position: absolute;
+                top: 1200px;
+                left: 185px;
+                color: white;
+                font-size: 36px;
+                border-collapse: collapse;
+                margin-bottom: 100px;
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+        <div id="testDurationController" class="controller coloredElement">
+            <h2 id="testDurationControllerHeader" class="controllerHeader">Length</h2>
+            <img id="testDurationIncrease" class="arrowController rightArrow" src="Images/rightArrow.png">
+            <h3 id="testDurationLabel" class="controllerLabel">10s</h3>
+            <img id="testDurationDecrease" class="arrowController leftArrow" src="Images/leftArrow.png">
+        </div>
+
+        <div id="targetGenSpeedController" class="controller coloredElement">
+            <h2 id="targetGenSpeedControllerHeader" class="controllerHeader">Difficulty</h2>
+            <img id="targetGenSpeedIncrease" class="arrowController rightArrow" src="Images/rightArrow.png">
+            <h3 id="targetGenSpeedLabel" class="controllerLabel">Easy</h3>
+            <img id="targetGenSpeedDecrease" class="arrowController leftArrow" src="Images/leftArrow.png">
+        </div>
+
+        <div id="targetSizeController" class="controller coloredElement">
+            <h2 id="targetSizeControllerHeader" class="controllerHeader">Size</h2>
+            <img id="targetSizeIncrease" class="arrowController rightArrow" src="Images/rightArrow.png">
+            <h3 id="targetSizeLabel" class="controllerLabel">Tiny</h3>
+            <img id="targetSizeDecrease" class="arrowController leftArrow" src="Images/leftArrow.png">
+        </div>
+
+        <div id="pageColorController" class="controller coloredElement">
+            <h2 id="pageColorControllerHeader" class="controllerHeader">Color</h2>
+            <div id="makePageRed" class="pageColorSelectors"></div>
+            <div id="makePageOrange" class="pageColorSelectors"></div>
+            <div id="makePageYellow" class="pageColorSelectors"></div>
+            <div id="makePageGreen" class="pageColorSelectors"></div>
+            <div id="makePageBlue" class="pageColorSelectors"></div>
+            <div id="makePagePurple" class="pageColorSelectors"></div>
+        </div>
+
+        <div id="testStarter" class="coloredElement">
+            <h1 id="testStarterText">Start</h1>
+        </div>
+
+        <div id="mouseAccuracyBox"></div>
+
+
+        <table id="scoreTable">
+            <thead>
+                <th>Length</th>
+                <th>Difficulty</th>
+                <th>Target Size</th>
+                <th>Target Count</th>
+                <th>Total Clicks</th>
+                <th>Targets Clicked</th>
+                <th>Click Accuracy</th>
+            </thead>
+            <tbody id="scoreTableBody">
+            </tbody>
+        </table>
+
+
+        <script>
+            /*********Getting necessary elements*********/
+
+            var mouseAccuracyBox = document.getElementById("mouseAccuracyBox");//The box where targets show up
+
+            var testStarter = document.getElementById("testStarter");//The start button
+
+            var testDurationController = document.getElementById("testDurationController"); //The "Length" button
+            var testDurationLabel = document.getElementById("testDurationLabel");
+            var testDurationIncrease = document.getElementById("testDurationIncrease");
+            var testDurationDecrease = document.getElementById("testDurationDecrease");
+
+            var targetGenSpeedController = document.getElementById("targetGenSpeedController"); //The "Difficulty" button
+            var targetGenSpeedLabel = document.getElementById("targetGenSpeedLabel");
+            var targetGenSpeedIncrease = document.getElementById("targetGenSpeedIncrease");
+            var targetGenSpeedDecrease = document.getElementById("targetGenSpeedDecrease");
+
+            var targetSizeController = document.getElementById("targetSizeController"); //The "Size" button
+            var targetSizeLabel = document.getElementById("targetSizeLabel");
+            var targetSizeIncrease = document.getElementById("targetSizeIncrease");
+            var targetSizeDecrease = document.getElementById("targetSizeDecrease");
+
+            var pageColorController = document.getElementById("pageColorController"); //The "Color" button
+            var pageColorSelectors = document.getElementsByClassName("pageColorSelectors");
+
+            var coloredElements = document.getElementsByClassName("coloredElement"); //The color selectors
+
+            var scoreTableBody = document.getElementById("scoreTableBody"); //The body of the score reporting table
+
+
+            /*********Setting necessary general starting global variables*********/
+
+            //General
+            var targetsCreated = 0;
+            var runningAccuracyTest; //Makes this var global
+            
+            //To be controlled by the user
+            var targetsPerSecond = 0.5; //In terms of seconds, of course
+            var testDuration = 10; //In terms of seconds
+            var targetSize = 1; //In terms of 15px
+
+            //Necesary to control the coloring of the page
+            var colorRed = [255, 255, 255, 0, 0, 128];
+            var colorGreen = [0, 128, 255, 128, 0, 0];
+            var colorBlue = [0, 0, 0, 0, 255, 255];
+
+
+
+
+            /*********Setting up the functions/variables for score recording*********/
+            
+            //Names and sets the score reporting variables (which will change according to what happens with the test)
+            var testDurationScore = "";
+            var testDifficultyScore = "";
+            var testTargetSizeScore = "";
+            var testTotalTargetsScore = 0;
+            var testTotalClicksScore = 0;
+            var testTotalTargetsClickedScore = 0;
+            var testClickAccuracyScore = 0;
+
+            //Names and sets the arrays that will contain the values that the above variables end up being for each test
+            var testDurationScoreArray = [];
+            var testDifficultyScoreArray = [];
+            var testTargetSizeScoreArray = [];
+            var testTotalTargetsScoreArray = [];
+            var testTotalClicksScoreArray = [];
+            var testTotalTargetsClickedScoreArray = [];
+            var testClickAccuracyScoreArray = [];
+
+            //A function that resets all of the score reporting variables, to be run WHEN THE START BUTTON IS PRESSED
+            var resetTheScore = function() {
+                testDurationScore = "";
+                testDifficultyScore = "";
+                testTargetSizeScore = "";
+                testTotalTargetsScore = 0;
+                testTotalClicksScore = 0;
+                testTotalTargetsClickedScore = 0;
+                testClickAccuracyScore = 0;
+            }
+
+            //Puts all of the score reporting variables into their corresponding array, which saves them
+            var saveTheScore = function() {
+                testDurationScoreArray.unshift(testDurationScore);
+                testDifficultyScoreArray.unshift(testDifficultyScore);
+                testTargetSizeScoreArray.unshift(testTargetSizeScore);
+                testTotalTargetsScoreArray.unshift(testTotalTargetsScore);
+                testTotalClicksScoreArray.unshift(testTotalClicksScore);
+                testTotalTargetsClickedScoreArray.unshift(testTotalTargetsClickedScore);
+                testClickAccuracyScoreArray.unshift(testClickAccuracyScore);
+            }
+
+            //Uses the score reporting arrays to display the stats from each test, where the most recent test is displayed on top
+            var displayTheScore = function() {
+                scoreTableBody.innerHTML = ""; //Resets the stats table
+
+                //Adds the stats from every test completed to the table, but as the data was UNSHIFTED into the arrays, the table puts the most recent tests first
+                for (i = 0; i < testDurationScoreArray.length; i++) {
+                    //Creates the row and its cells, and names them
+                    var scoreTableNewRow = document.createElement("tr");
+                    var newTestDurationScore = document.createElement("td");
+                    var newTestDifficultyScore = document.createElement("td");
+                    var newTestTargetSizeScore = document.createElement("td");
+                    var newTestTotalTargetsScore = document.createElement("td");
+                    var newTestTotalClicksScore = document.createElement("td");
+                    var newTestTotalTargetsClickedScore = document.createElement("td");
+                    var newTestClickAccuracyScore = document.createElement("td");
+                    
+                    //Sets the content of the cell in each row to match the stats from its corresponding test/array index
+                    newTestDurationScore.innerHTML = testDurationScoreArray[i];
+                    newTestDifficultyScore.innerHTML = testDifficultyScoreArray[i];
+                    newTestTargetSizeScore.innerHTML = testTargetSizeScoreArray[i];
+                    newTestTotalTargetsScore.innerHTML = testTotalTargetsScoreArray[i];
+                    newTestTotalClicksScore.innerHTML = testTotalClicksScoreArray[i];
+                    newTestTotalTargetsClickedScore.innerHTML = testTotalTargetsClickedScoreArray[i];
+                    newTestClickAccuracyScore.innerHTML = testClickAccuracyScoreArray[i];
+
+                    //Appends the table row/cells into the table
+                    scoreTableBody.appendChild(scoreTableNewRow);
+                    scoreTableNewRow.appendChild(newTestDurationScore);
+                    scoreTableNewRow.appendChild(newTestDifficultyScore);
+                    scoreTableNewRow.appendChild(newTestTargetSizeScore);
+                    scoreTableNewRow.appendChild(newTestTotalTargetsScore);
+                    scoreTableNewRow.appendChild(newTestTotalClicksScore);
+                    scoreTableNewRow.appendChild(newTestTotalTargetsClickedScore);
+                    scoreTableNewRow.appendChild(newTestClickAccuracyScore);
+
+                    //Sets the most recent/top test to have a green background
+                    if (i === 0) {
+                        scoreTableNewRow.style.backgroundColor = "green";
+                    }
+                }
+            }
+
+            //Function that gets run at the end of a test(delayed), which records the final score reporting variables and sets up the test to be run again
+            var finalizeTheRecording = function() {
+                    //Sets the last of these variables
+                    testTotalTargetsScore = testDuration*targetsPerSecond;
+                    testClickAccuracyScore = 100*testTotalTargetsClickedScore/testTotalClicksScore + "%";
+                    
+                    //Runs the functions that allow the results to be displayed
+                    saveTheScore();
+                    displayTheScore();
+
+                    //Sets up the test to be run again
+                    targetsCreated = 0;
+            }
+
+
+            /*********Allows the user to control the settings of the test*********/
+
+            //Removes the functionality of the settings/start buttons, and is called at the start of a test
+            var dontYouTryToBreakThisYouLoser = function() {
+                testStarter.removeEventListener("click", triggerAccuracyTest);
+                testDurationIncrease.removeEventListener("click", increaseDuration);
+                testDurationDecrease.removeEventListener("click", decreaseDuration);
+                targetGenSpeedIncrease.removeEventListener("click", increaseSpeed);
+                targetGenSpeedDecrease.removeEventListener("click", decreaseSpeed);
+                targetSizeIncrease.removeEventListener("click", increaseSize);
+                targetSizeDecrease.removeEventListener("click", decreaseSize);
+            }
+
+            //Returns the functionality of the settings/start buttons, and is called at the end of the test
+            var okYouCanChangeTheSettingsNow = function() {
+                testStarter.addEventListener("click", triggerAccuracyTest);
+                testDurationIncrease.addEventListener("click", increaseDuration);
+                testDurationDecrease.addEventListener("click", decreaseDuration);
+                targetGenSpeedIncrease.addEventListener("click", increaseSpeed);
+                targetGenSpeedDecrease.addEventListener("click", decreaseSpeed);
+                targetSizeIncrease.addEventListener("click", increaseSize);
+                targetSizeDecrease.addEventListener("click", decreaseSize);
+            }
+
+            //Makes the start test button actually start the test
+            //This causes the target creation function to be called constantly
+            var triggerAccuracyTest = function () {
+                dontYouTryToBreakThisYouLoser();
+                resetTheScore();
+                testDurationScore = testDurationLabel.innerHTML;
+                testDifficultyScore = targetGenSpeedLabel.innerHTML;
+                testTargetSizeScore = targetSizeLabel.innerHTML;
+                runningAccuracyTest = setInterval(runTheTest, 1000/targetsPerSecond);
+            }
+            testStarter.addEventListener("click", triggerAccuracyTest);
+
+
+            //This controls the duration of the test, set by the user.
+            var increaseDuration = function() {
+                if (testDuration < 60) {
+                    testDuration += 10;
+                    testDurationLabel.innerHTML = testDuration + "s";
+                }
+            }
+            testDurationIncrease.addEventListener("click", increaseDuration);
+
+            var decreaseDuration = function() {
+                if (testDuration > 10) {
+                    testDuration -= 10;
+                    testDurationLabel.innerHTML = testDuration + "s";
+                }
+            }
+            testDurationDecrease.addEventListener("click", decreaseDuration);
+
+
+            //This controls the rate at which the targets are generated, set by the user.
+            var increaseSpeed = function() {
+                if (targetsPerSecond === 0.5) {
+                    targetsPerSecond = 1;
+                    targetGenSpeedLabel.innerHTML = "Normal";
+                    targetGenSpeedLabel.style.left = "45px";
+                } else if (targetsPerSecond === 1) {
+                    targetsPerSecond = 2;
+                    targetGenSpeedLabel.innerHTML = "Hard";
+                    targetGenSpeedLabel.style.left = "75px";
+                } else if (targetsPerSecond === 2) {
+                    targetsPerSecond = 3;
+                    targetGenSpeedLabel.innerHTML = "Extreme";
+                    targetGenSpeedLabel.style.left = "38px";
+                }
+            }
+            targetGenSpeedIncrease.addEventListener("click", increaseSpeed);
+
+            var decreaseSpeed = function() {
+                if (targetsPerSecond === 3) {
+                    targetsPerSecond = 2;
+                    targetGenSpeedLabel.innerHTML = "Hard";
+                    targetGenSpeedLabel.style.left = "75px";
+                } else if (targetsPerSecond === 2) {
+                    targetsPerSecond = 1;
+                    targetGenSpeedLabel.innerHTML = "Normal";
+                    targetGenSpeedLabel.style.left = "45px";
+                } else if (targetsPerSecond === 1) {
+                    targetsPerSecond = 0.5;
+                    targetGenSpeedLabel.innerHTML = "Easy";
+                    targetGenSpeedLabel.style.left = "75px";
+                }
+            }
+            targetGenSpeedDecrease.addEventListener("click", decreaseSpeed);
+
+
+            //This controls the size of the targets, set by the user.
+            var increaseSize = function() {
+                if (targetSize === 1) {
+                    targetSize = 2;
+                    targetSizeLabel.innerHTML = "Small";
+                    targetSizeLabel.style.left = "70px";
+                } else if (targetSize === 2) {
+                    targetSize = 3;
+                    targetSizeLabel.innerHTML = "Normal";
+                    targetSizeLabel.style.left = "50px"; 
+                } else if (targetSize === 3) {
+                    targetSize = 4;
+                    targetSizeLabel.innerHTML = "Large";
+                    targetSizeLabel.style.left = "70px"; 
+                } else if (targetSize === 4) {
+                    targetSize = 5;
+                    targetSizeLabel.innerHTML = "Giant";
+                    targetSizeLabel.style.left = "70px"; 
+                }
+            }
+            targetSizeIncrease.addEventListener("click", increaseSize);
+
+            var decreaseSize = function() {
+                if (targetSize === 5) {
+                    targetSize = 4;
+                    targetSizeLabel.innerHTML = "Large";
+                    targetSizeLabel.style.left = "70px";
+                } else if (targetSize === 4) {
+                    targetSize = 3;
+                    targetSizeLabel.innerHTML = "Normal";
+                    targetSizeLabel.style.left = "50px"; 
+                } else if (targetSize === 3) {
+                    targetSize = 2;
+                    targetSizeLabel.innerHTML = "Small";
+                    targetSizeLabel.style.left = "70px"; 
+                } else if (targetSize === 2) {
+                    targetSize = 1;
+                    targetSizeLabel.innerHTML = "Tiny";
+                    targetSizeLabel.style.left = "80px"; 
+                }
+            }  
+            targetSizeDecrease.addEventListener("click", decreaseSize);
+
+
+            //This controls the coloring of the page, set by the user.
+            //The for loop directly below sets up an event listener for each color selector and a corresponding function to set every colored el on the page to the selected color
+            //Let is used here so that each function called by this for loop gets the "i" value it should(using var doesn't do this).
+            for (let i = 0; i < pageColorSelectors.length; i++) {
+                var functionName = "coloringFunction" + i; //Gives the function a unique name
+                //This is the function that actually colors each el
+                functionName = function () {
+                    //This for loop makes it so that each function that sets color actually 
+                    //applies the color to every single element with the 
+                    //"coloredElements" tag
+                    for (var j = 0; j < coloredElements.length; j++) {
+                        //Using the j in "coloredElements[j]" makes it so each function 
+                        //changes every el with the "coloredElements" class.
+                        //Using [i] for the colors themselves makes sure that the color 
+                        //the els are set to actually matches the color selector clicked.
+                        coloredElements[j].style.backgroundColor = "rgb(" + colorRed[i] + ", " 
+                        + colorGreen[i] + ", " + colorBlue[i] + ")";
+                    }
+                }
+                pageColorSelectors[i].addEventListener("click", functionName); //Creates each event listener
+            }
+
+
+
+
+            /*********Sets up the functionality of the test and its user interaction*********/
+
+            //This adds 1 total click for every time the testing box is clicked
+            //Even if a target is clicked, this is run, as the program still counts that as clicking the testing box
+            var registerTotalClicks = function() {
+                testTotalClicksScore++;
+            }
+            mouseAccuracyBox.addEventListener("click", registerTotalClicks);
+
+
+            //Function that controls the creation and interaction of every target
+            var runTheTest = function() {
+                //Creates one target, gives it the necessary attributes, and randomizes its position
+                //Color is set by setting the color to match that of the first el in the class coloredElements, which was set by the user prior to the running of the test. The color could match the 1st-5th el in this class, it doesn't matter
+                var target = document.createElement("div");
+                target.className = "target";
+                target.style.backgroundColor = coloredElements[0].style.backgroundColor;
+                mouseAccuracyBox.appendChild(target);
+                target.style.top = Math.floor(Math.random() * (800 - 15*targetSize) + 7.5*targetSize) + "px";
+                target.style.left = Math.floor(Math.random() * (1600 - 15*targetSize) + 7.5*targetSize) + "px";
+
+                var currentTargetTime = 0; //Defines the time the target has existed as 0 to start
+
+                //Increases the size of the target and positions it accordingly, as well as deletes it after a certain amount of time
+                //Size + position are functions of currentTargetTime, which increases every time this function is called
+                var targetSizeChanger = function() {
+                    if (currentTargetTime < 600) {
+                        target.style.top = parseFloat(target.style.top) - targetSize*(300 - currentTargetTime)/6000 + "px";
+                        target.style.left = parseFloat(target.style.left) - targetSize*(300 - currentTargetTime)/6000 + "px";
+                        target.style.width = (-targetSize / 6000 * Math.pow(currentTargetTime - 300, 2) + 15*targetSize) + "px";
+                        target.style.height = (-targetSize / 6000 * Math.pow(currentTargetTime - 300, 2) + 15*targetSize) + "px";
+                    } else {
+                        target.style.display = "none";
+                        clearInterval(triggerTargetSizeChanger); //Stops the function from being called endlessly, for lag prevention purposes(no other reason)
+                    }
+                    currentTargetTime++;
+                }
+                var triggerTargetSizeChanger = setInterval(targetSizeChanger, 10); //Simply calls the above function constantly(every 0.1s)
+
+                //Makes clicking the target cause it to disappear
+                var targetIsClicked = function () {
+                    target.style.display = "none";
+                    testTotalTargetsClickedScore++;
+                }
+                target.addEventListener("click", targetIsClicked);
+
+                targetsCreated++; //Counts how many targets have been created; increases by 1 every time this function is called
+                //Stops this function from running once a certain number of targets have been created, and resets the targets created count(as the test will have concluded)
+                if (targetsCreated === testDuration*targetsPerSecond) {
+                    //Immediately stops the test from being run
+                    clearInterval(runningAccuracyTest);
+
+                    //Records the last stats and sets the test up for being run again
+                    setTimeout(finalizeTheRecording, 3000);
+
+                    //Returns functionality to the settings/start buttons
+                    setTimeout(okYouCanChangeTheSettingsNow, 3000);
+                }
+            }
+        </script>
+    </body>
+</html>

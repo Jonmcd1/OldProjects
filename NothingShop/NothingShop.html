@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <div id="pageHeader">
+            <h1 id="pageHeaderText">The Nothing Shop</h1>
+        </div>
+        <div id="pageNavigation">
+            <a id="leftNav" href="generalItems.html">General Items</a>
+            <a id="midNav" href="discountedItems.html">Discount Items</a>
+            <a id="rightNav" href="checkout.html">Order</a>
+        </div>
+
+        <div id="featuredItem" class="container">
+            <h2 id="featuredItemHeader">Featured Item:</h2>
+            <img id="featuredImage" src="LiquidNothing.jpg" alt="Nothing but it's a liquid">
+            <h2 id="featuredItemName">Liquid Nothing!</h2>
+            <p>This brand new item is Nothing in a liquid form!</p>
+        </div>
+
+        <div id="description" class="container">
+            <h2>About the Shop</h2>
+            <p id="descriptionText">
+                I started this shop to share the gift of nothing with the world. Here, we sell
+                nothing of all shapes and sizes, and best of all, everything's
+                <span id="glowyText">FREE</span>! To order from the Nothing Shop, simply
+                look through the <strong>General Items</strong> and
+                <strong>Discount Items</strong> pages, then make your puchase at the
+                <strong>Order</strong> page. Your order will be shipped to your
+                location automatically!
+            </p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script>
+            var glowyText = document.getElementById("glowyText");
+            var colors = ["#ff0000", "#ff9900", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#6600ff", "#ff00ff", "#ff0066"];
+            var currentColor = 0;
+            var rotateColors = function() {
+                glowyText.style.color = colors[currentColor];
+                currentColor++;
+                if (currentColor >= 9) {
+                    currentColor = 0;
+                }
+            };
+            setInterval(rotateColors, 100);
+        </script>
+
+    </body>
+</html>
+
+<!--
+Image sources:
+    StandardNothing.jpg: https://www.freepik.com/premium-photo/empty-hand_8889529.htm
+    LargeNothing.jpg: https://www.cleanpng.com/png-hand-stock-xchng-thumb-image-business-free-empty-f-6225299/
+    LiquidNothing.jpg: https://icon-library.com/tags/cupped-hands.html
+    NothingButFromTopView.jpg: https://www.pinterest.com/pin/613685886706968178/
+    DrawnNothing.jpg: https://www.vectorstock.com/royalty-free-vector/open-empty-hand-vector-4765006
+    MyRemainingIdeas.jpg: https://www.dreamstime.com/photos-images/empty-hand.html
+-->

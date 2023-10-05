@@ -1,0 +1,525 @@
+body {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+}
+
+p {
+    margin: 0px;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+div {
+    margin: 0px;
+}
+
+h2 {
+    margin: 0px;
+}
+
+td {
+    padding-bottom: 30px;
+}
+
+#headerBox {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(0, 0, 0);
+    z-index: 10;
+}
+#headerTitle {
+    font-size: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    margin: 0px;
+    margin-top: 15px;
+    z-index: 11;
+}
+
+
+
+#navBox {
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    top: 100px;
+    left: 0px;
+    margin: 0px;
+    background-color: rgb(40, 40, 40);
+    z-index: 9;
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
+.navText {
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(146, 190, 255);
+    margin: 0px;
+    z-index: 10;
+}
+#nav1 {
+    position: fixed;
+    top: 110px;
+    margin: 0px;
+    left: 20%;
+}
+#nav2 {
+    position: fixed;
+    top: 110px;
+    left: 45%;
+    margin: 0px;
+}
+#nav3 {
+    position: fixed;
+    top: 110px;
+    margin: 0px;
+    right: 20%;
+}
+
+
+
+#fillerPage {
+    width: 100%;
+    position: relative;
+    top: 150px;
+}
+
+
+
+#portfolioHome{
+    top: 157px;
+    width: 102%;
+    height: 750px;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    position: relative;
+    left: -8px;
+}
+
+#portfolioHomeTitle {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    font-size: 60px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+#portfolioHome1 {
+    position: relative;
+    float: left;
+    top: 10px;
+    border: 5px solid rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34);
+    margin: 0px;
+    margin-left: 5%;
+    width: 40%;
+    height: 575px;
+}
+#portfolioHomeImage1 {
+    width: 100%;
+    border-bottom: 5px dashed rgb(175, 175, 175)
+}
+#portfolioHomeName1 {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(146, 190, 255);
+    margin: 10px;
+}
+
+#portfolioHome2 {
+    position: relative;
+    float: right;
+    top: 10px;
+    border: 5px solid rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34);
+    margin: 0px;
+    margin-right: 5%;
+    width: 40%;
+    height: 575px;
+}
+#portfolioHomeImage2 {
+    width: 100%;
+    border-bottom: 5px dashed rgb(175, 175, 175)
+}
+#portfolioHomeName2 {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(146, 190, 255);
+    margin: 10px;
+}
+
+
+
+#languagesHome {
+    position: relative;
+    clear: both;
+    top: 170px;
+    left: -8px;
+    width: 102%;
+    margin: 0px;
+}
+
+#languagesHomeTitle {
+    height: 60px;
+    margin: 5px;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.languagesHomeLanguage {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    padding-top: 10px;
+    margin: 0px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    background-color: rgb(34, 34, 34);
+    color: rgb(255, 185, 106);
+    border-bottom: 8px solid rgb(0, 0, 0);
+    border-left: 8px solid rgb(0, 0, 0);
+    border-right: 8px solid rgb(0, 0, 0);
+}
+#languagesHomeTop {
+    border-top: 8px solid rgb(0, 0, 0);
+    margin-top: 20px;
+}
+
+.languagesHomeLanguageTerms {
+    width: 100%;
+    font-weight: 400;
+    font-family: monospace;
+    font-size: 30px;
+    color: rgb(146, 190, 255);
+    padding-top: 50px;
+}
+
+
+
+#portfolioIntro {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    color: rgb(146, 190, 255);
+}
+
+.largeShowcase {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    margin-bottom: 30px;
+    border: 5px solid rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34);
+    font-size: 60px;
+    text-align: center;
+}
+.showcaseHeader {
+    color: rgb(255, 185, 106);
+}
+.largeShowcase .showcaseImage {
+    width: 100%;
+    border-bottom: 5px dashed rgb(175, 175, 175);
+    border-top: 5px dashed rgb(175, 175, 175);
+}
+.showcaseDescription {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(146, 190, 255);
+    margin: 10px;
+    margin-top: 0px;
+}
+.showcaseDescriptionImportant {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+
+#termsLearned {
+    position: relative;
+    margin: 0px;
+    margin-top: 185px;
+    width: 102%;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    left: -14px;
+}
+#termsLearnedHeader {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    font-size: 60px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.left {
+    float: left;
+    clear: left;
+    margin: 0px;
+    margin-left: 3%;
+}
+.right {
+    float: right;
+    clear: right;
+    margin: 0px;
+    margin-right: 3%;
+}
+.termItem {
+    width: 40%;
+    border: 5px solid rgb(175, 175, 175);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+}
+.termItemHeader {
+    font-size: 60px;
+    margin: 0px;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(255, 185, 106);
+}
+.termItemSubheader {
+    font-size: 36px;
+    color: rgb(255, 185, 106);
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.termItemDesc {
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(146, 190, 255);
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.termDescText {
+    color: rgb(146, 190, 255);
+}
+.termItemList {
+    text-align: left;
+}
+.termItemDesc.termItemDescBottom {
+    border: 0px;
+}
+.imgWithinDiv {
+    width: 100%;
+}
+#spanExample {
+    color: rgb(255, 0, 0);
+}
+#fontFamilyExample1 {
+    font-family: georgia;
+}
+#fontFamilyExample2 {
+    font-family: monospace;
+}
+#fontFamilyExample3 {
+    font-family: 'Times New Roman';
+}
+#fontWeightExample1 {
+    font-weight: normal;
+}
+#fontWeightExample2 {
+    font-weight: bold;
+}
+#textDecorationExample1 {
+    text-decoration: underline;
+}
+#fontStyleExample1 {
+    font-style: italic;
+}
+
+
+
+#conceptsLearned {
+    position: relative;
+    clear: all;
+    width: 102%;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    left: -14px;
+}
+#conceptsLearnedHeader {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    font-size: 60px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.conceptItem {
+    width: 40%;
+    border: 5px solid rgb(175, 175, 175);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+}
+.conceptItemHeader {
+    font-size: 60px;
+    margin: 0px;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(255, 185, 106);
+}
+.conceptItemSubheader {
+    font-size: 36px;
+    color: rgb(255, 185, 106);
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.conceptItemDesc {
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(146, 190, 255);
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.conceptItemList {
+    text-align: left;
+}
+.conceptItemDesc.conceptItemDescBottom {
+    border: 0px;
+}
+
+
+
+#syntaxLearned {
+    position: relative;
+    clear: all;
+    width: 102%;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    left: -14px;
+}
+#syntaxLearnedHeader {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: rgb(255, 185, 106);
+    font-size: 60px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.syntaxItem {
+    width: 40%;
+    border: 5px solid rgb(175, 175, 175);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+}
+.syntaxItemHeader {
+    font-size: 60px;
+    margin: 0px;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(255, 185, 106);
+}
+.syntaxItemSubheader {
+    font-size: 36px;
+    color: rgb(255, 185, 106);
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.syntaxItemDesc {
+    border-bottom: 3px solid rgb(255, 255, 255);
+    color: rgb(146, 190, 255);
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+.syntaxItemList {
+    text-align: left;
+}
+.syntaxItemDesc.syntaxItemDescBottom {
+    border: 0px;
+}
+
+
+
+
+#pageExtender {
+    position: relative;
+    clear: both;
+    width: 100%;
+    height: 10px;
+    bottom: -300px;
+    margin: 0px;
+}
+#divExtender {
+    position: relative;
+    clear: both;
+    width: 100%;
+    height: 10px;
+    bottom: 0px;
+    margin: 0px;
+}
+
+
+
+#footerBox {
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
+    background-color: rgb(40, 40, 40);
+    border-top: 5px solid rgb(0, 0, 0);
+    z-index: 10;
+}
+
+.footerText {
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+    color: rgb(146, 190, 255);
+    margin: 0px;
+    z-index: 11;
+}
+
+#footer1 {
+    position: fixed;
+    bottom: 9px;
+    margin: 0px;
+    right: 3%;
+}
+
+#footer2 {
+    position: fixed;
+    bottom: 9px;
+    margin: 0px;
+    right: 33%;
+}
+
+#footer3 {
+    position: fixed;
+    bottom: 9px;
+    margin: 0px;
+    right: 53%;
+}
+
+#footer4 {
+    position: fixed;
+    bottom: 9px;
+    margin: 0px;
+    right: 73%;
+}

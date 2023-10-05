@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Learned</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    </head>
+    <body>
+        <div id="headerBox">
+            <h1 id="headerTitle">JavaScript Learned</h1>
+        </div>
+
+        <div id="navBox">
+            <a id="nav1" class="navText" href="#termsLearnedHeader">Terms</a>
+            <a id="nav2" class="navText" href="#conceptsLearnedHeader">Concepts</a>
+            <a id="nav3" class="navText" href="#syntaxLearnedHeader">Syntax</a>
+        </div>
+
+        <div id="termsLearned">
+            <p id="termsLearnedHeader">Terms</p>
+
+            <div class="left termItem">
+                <h3 class="termItemHeader">ellipse</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function simply draws an ellipse on the page.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This parameter controls the horizontal position 
+                        of the center of the ellipse.
+                    </li>
+                    <li>Parameter 2: This parameter controls the vertical position 
+                        of the center of the ellipse.
+                    </li>
+                    <li>Parameter 3: This parameter controls the width of the ellipse.
+                    </li>
+                    <li>Parameter 4: This parameter controls the height of the ellipse.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>None</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    ellipse(203, 203, 288, 309);
+                </p>
+
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">rect</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function simply draws a rectangle on the page.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This parameter controls the horizontal position 
+                        of the left side of the rectangle.
+                    </li>
+                    <li>Parameter 2: This parameter controls the vertical position 
+                        of the top of the rectangle.</li>
+                    <li>Parameter 3: This parameter controls the width of the rectangle.</li>
+                    <li>Parameter 4: This parameter controls the height of the rectangle.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>None</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    rect(100, 100, 200, 167);
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">line</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function simply draws a line on the page.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This controls the horizontal position of one endpoint 
+                        of the line.
+                    </li>
+                    <li>Parameter 2: This controls the vertical position of one endpoint 
+                        of the line.</li>
+                    <li>Parameter 3: This controls the horizontal position of the other endpoint 
+                        of the line.</li>
+                    <li>Parameter 4: This controls the horizontal position of the other endpoint 
+                        of the line.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>None</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    line(0, 0, 200, 300);
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">text</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function writes text on the page.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This controls what text gets written.</li>
+                    <li>Parameter 2: This controls the horizontal position of the left 
+                        side of the text.
+                    </li>
+                    <li>Parameter 3: This controls the vertical position of the top 
+                        of the text.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Text written in parameter 1 should be in quotes, unless the text is 
+                        a variable.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    text("Hello!", 100, 200);
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">fill</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function controls the fill color of everything coded below it.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This controls how red the fill color is.</li>
+                    <li>Parameter 2: This controls how green the fill color is.</li>
+                    <li>Parameter 3: This controls how blue the fill color is.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>JS code will only respond to the fill function that is closest to it
+                        as well as above it.
+                    </li>
+                    <li>All parameter values for this function must be between 0 and 255, 
+                        inclusive.
+                    </li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    fill(178, 0, 255);
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">stroke</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    This function controls the outline color of everything coded below it.
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: This controls how red the stroke color is.</li>
+                    <li>Parameter 2: This controls how green the stroke color is.</li>
+                    <li>Parameter 3: This controls how blue the stoke color is.</li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>JS code will only respond to the stroke function that is closest to it
+                        as well as above it.</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    stroke(1, 120, 120);
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">function</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">for</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">while</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">draw</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+            <div class="left termItem">
+                <h3 class="termItemHeader">var</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+            <div class="right termItem">
+                <h3 class="termItemHeader">if/else</h3>
+                <h4 class="termItemSubheader">Overview</h4>
+                <p class="termItemDesc">
+                    (Description of term)
+                </p>
+                <h4 class="termItemSubheader">Parameters</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>Parameter 1: </li>
+                    <li>Parameter 2: </li>
+                    <li>Parameter 3: </li>
+                    <li>Parameter 4: </li>
+                </ul>
+                <h4 class="termItemSubheader">Notes</h4>
+                <ul class="termItemDesc termItemList">
+                    <li>(Any other notes to add about term)</li>
+                </ul>
+                <h4 class="termItemSubheader">Examples</h4>
+                <p class="termItemDesc termItemDescBottom">
+                    (Examples of term being used(Only applicable if term creates some visual))
+                </p>
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="conceptsLearned">
+            <p id="conceptsLearnedHeader">Concepts</p>
+
+            <div class="left conceptItem">
+                <h3 class="conceptItemHeader">The JS Library</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+            <div class="right conceptItem">
+                <h3 class="conceptItemHeader">Loops</h3>
+                <h4 class="conceptItemSubheader">Overview</h4>
+                <p class="conceptItemDesc">
+                    Description of concept
+                </p>
+                <h4 class="conceptItemSubheader">Notes</h4>
+                <ul class="conceptItemDesc conceptItemList conceptItemDescBottom">
+                    <li>(Any other notes to add about concept)</li>
+                </ul>
+
+            </div>
+
+            <div id="divExtender"></div>
+        </div>
+
+        <div id="syntaxLearned bottomLearned">
+            <p id="syntaxLearnedHeader">Syntax</p>
+
+            <div class="left syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+            <div class="right syntaxItem">
+                <h3 class="syntaxItemHeader">(Syntax Item)</h3>
+                <h4 class="syntaxItemSubheader">Overview</h4>
+                <p class="syntaxItemDesc">
+                    Description of syntax
+                </p>
+                <h4 class="syntaxItemSubheader">Notes</h4>
+                <ul class="syntaxItemDesc syntaxItemList">
+                    <li>(Any other notes to add about syntax)</li>
+                </ul>
+                <h4 class="syntaxItemSubheader">Examples</h4>
+                <p class="syntaxItemDesc syntaxItemDescBottom">
+                    Examples of syntax being used
+                </p>
+
+            </div>
+
+
+            <div id="divExtender"></div>
+        </div>
+
+
+
+
+        <div id="pageExtender"></div>
+
+        <div id="footerBox">
+            <h6 id="footer1" class="footerText">ⒸJonathan McDevitt</h6>
+            <a id="footer2" class="footerText" href="index.html">Home</a>
+        </div>
+    </body>
+</html>

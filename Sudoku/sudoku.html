@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sudoku Solver</title>
+        <style>
+
+
+            #sudokuBoard {
+                position: fixed;
+                top: 100px;
+                left: 100px;
+                border: 5px solid black;
+
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+
+
+        <table id="sudokuBoard"></table>
+
+
+
+        <script>
+            var sudokuBoard = document.getElementById("sudokuBoard");
+            var sudokuCells = [];
+
+            for (var i = 0; i < 9; i++) {
+                var newRow = document.createElement("tr");
+                sudokuBoard.appendChild("newRow");
+                sudokuCells.push([]);
+                for (var j = 0; j < 9; j++) {
+                    var newCell = document.createElement("td");
+                    newRow.appendChild("newCell");
+                    sudokuCells[i].push(newCell);
+                }
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=“utf-8”>
+        <title>Caesar Cipher</title>
+        <style>
+            .iCantGetThisToWork {
+                position: relative;
+                margin: 0px;
+                margin-bottom: 70px;
+            }
+            #inputTextHere {
+                width: 40%;
+                left: 30%;
+                top: 50px;
+            }
+            #runProgram {
+                width: 20%;
+                left: 40%;
+                height: 50px;
+                background-color: lime;
+                border: solid 3px black;
+                text-align: center;
+                font-size: 42px;
+            }
+            #outputTextHere {
+                width: 40%;
+                left: 30%;
+                border: solid 3px black;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="inputTextHere" class="iCantGetThisToWork">
+        <div id="runProgram" class="iCantGetThisToWork">Encrypt</div>
+        <p id="outputTextHere" class="iCantGetThisToWork"></p>
+        <script>
+            var inputTextBox = document.getElementById("inputTextHere");
+            var runProgram = document.getElementById("runProgram");
+            var outputTextBox = document.getElementById("outputTextHere");
+            var charcterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            
+            var encrypt = function() {
+                var inputText = inputTextBox.value.toString();
+                var outputText = "";
+                for (var i = 0; i < inputText.length; i++) {
+                    var indexOfCharacter = charcterArr.indexOf(inputText[i].toLowerCase());
+                    var indexOfReplacement = (indexOfCharacter + 3) % 25;
+
+
+                    if (indexOfCharacter == -1) {
+                        outputText = outputText.concat(inputText[i]);
+                    } else if (charcterArr[indexOfCharacter] == inputText[i]) {
+                        outputText = outputText.concat(charcterArr[indexOfReplacement]);
+                    } else if (charcterArr[indexOfCharacter].toUpperCase() == inputText[i]) {
+                        outputText = outputText.concat(charcterArr[indexOfReplacement].toUpperCase());
+                    } else {
+                        outputText = outputText.concat(inputText[i]);
+                    }
+                }
+                outputTextBox.textContent = outputText;
+            }
+            runProgram.addEventListener("click", encrypt);
+        </script>
+    </body>
+</html>
